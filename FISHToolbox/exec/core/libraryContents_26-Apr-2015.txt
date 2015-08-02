@@ -1,0 +1,10 @@
+Library contents as of 26-Apr-2015 (using compact format)
+
+Listing the contents of the entire library, no restricting conditions applied.
+
+>> datasetID     	120306_oreR_Kr5p54_hbFull633_03_
+>> status        	OK
+>> manualNucMask 	no
+>> autothresholds	none
+>> quickAnalysis 	no
+

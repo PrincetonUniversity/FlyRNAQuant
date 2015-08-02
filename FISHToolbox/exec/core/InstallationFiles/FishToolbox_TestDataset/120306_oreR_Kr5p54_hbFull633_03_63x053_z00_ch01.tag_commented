@@ -1,0 +1,96 @@
+% Sample tag file with comments
+% Empty lines and lines STARTING with "%" are ignored.
+% You are not allowed to add comment to the right of a command     % (like this)
+
+% All the fields are either used to locate the data files (location tags)
+% or will appear as identifying labels on all the plots (descriptive tags).
+
+% id MUST be the same as the file name prefix
+id 120306_oreR_Kr5p54_hbFull633_03_
+stage nc14
+phase early
+geno orer
+obj 63x
+fix 120303
+process 120303
+mount 120303
+image 120306
+
+% the comment below will appear as a label on all the plots (contrary to this one)
+comment "test dataset"
+
+% flip specifies if the embryo was imaged in the “standard” orientation 
+% (anterior on the left, "flip 0" or "flip AP") or in the flipped one 
+% (anterior on the right, "flip 1" or "flip PA"). 
+flip AP
+
+% mid20x, surf20x, flat, frames and suffix are "location tags"
+% They describe the suffixes that should be added to the prefix (=dataset ID) 
+% to obtain the name of the .tif file corresponding to the flat field image, 
+% low-mag surface image, low-mag midsaggital image or a frame of the stack, 
+% respectively. If some of these are absent, omit the corresponding tag.
+%
+% Do not include the .tif extension in the suffix!
+mid20x 20x_z1_ch00
+surf20x 20x_z0_ch00
+
+% Description of each channel
+
+1
+arr Kr_V2_54_5p
+gene Kr
+fluorophore atto565
+PMT 800
+step 250 
+flat 63x_flat565_ch00
+
+% Suffix should have ? placeholders for each digit of the frame number.
+% The range indicated in "frames" is used to replace the ?'s to obtain image file names.
+% Frames is in matlab-style format, i.e. first:last.
+% Make sure you put in the correct number of ?'s! 
+% If your first frame is named <id prefix_>frame_1, use "suffix frame_?"
+% If it's <id prefix>_frame_001, use "suffix frame_???"
+
+% Don't specify incompatible tags such as:
+%   frames 1:100
+%   suffix too_few_?
+% It won't do you any good.
+
+frames 17:33
+suffix 63x053_z??_ch01
+
+2
+arr hb_V2_all
+gene hb
+fluorophore atto633
+PMT 800
+step 250 
+frames 17:33
+suffix 63x053_z??_ch02
+flat 63x_flat633_ch00
+
+% Description of associated stacks
+% If an associated stack is absent, omit its entire description 
+% (do not put the header, such as "DAPI", either)
+
+% An associated stack does not have descriptive tags, only three location tags:
+% frames, suffix and flat
+% A DAPI stack typically does not have a flat field image but a protein staining would have one.
+
+DAPI
+frames 17:33
+suffix 63x053_z??_ch00
+
+% If a dataset does not have an associate DAPI stack but only one DAPI image, 
+% describe it with a suffix that has no ?'s. For example:
+%
+%   DAPI
+%   frames 517
+%   suffix DAPI_D_ch00
+%
+% This illustrates that "frames 517" does not mean there are 517 frames, it 
+% means there is just one frame which I arbitrary designated as 517: the 
+% suffix contains no ?'s, and so it doesn't matter.
+
+% If a bicoid stack is present, describe it as DAPI but starting with BCD on a separate line.
+% You can add an arbitrary number of asociated stacks labeling them as you like.

@@ -1,0 +1,2 @@
+function m = FITMODE_CIRCULAR_STANDARDSIZE
+m = 3;
